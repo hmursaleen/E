@@ -1,9 +1,16 @@
 {% extends 'core/base.html' %}
 
-{% block title %}
-Welcome
-{% endblock %}
+{% block title %}Welcome{% endblock %}
 
 {% block content %}
-works
+<div class="flex flex-wrap"> <!--want to show 3 products per row, so i've to use flex and use width = 1/3 -->
+	{% for product in products %}
+	<div class="product w-1/3 p-2"> <!--for 2 padding space between them -->
+		<div class="p-4 bg-gray-100"> <!--inner padding of 4 -->
+			<h2 class="text-xl">{{ product.title }}</h2>
+			<p class="text-s text-gray-600">BDT {{ product.price }} </p>
+		</div>
+	</div>
+	{% endfor %}
+</div>
 {% endblock %}
