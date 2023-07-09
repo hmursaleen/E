@@ -4,22 +4,5 @@
 
 {% block content %}
 <h1 class="text-2xl">{{ category.title }}</h1>
-
-<div class="flex flex-wrap"> <!--want to show 3 products per row, so i've to use flex and use width = 1/3 -->
-	{% for product in products %}
-	<div class="product w-1/3 p-2"> <!--for 2 padding space between them -->
-		<div class="p-4 bg-gray-100"> <!--inner padding of 4 -->
-			<a href="{% url 'product_detail' product.category.slug product.slug %}">
-				{% if product.image %}
-					<div class="image mb-2">
-						<img src="{{ product.image.url }}" alt="Image of {{ product.title }}">
-					</div>
-				{% endif %}
-			<h2 class="text-xl">{{ product.title }}</h2>
-			<p class="text-s text-gray-600">৳ {{ product.price }} </p>
-			</a>
-		</div>
-	</div>
-	{% endfor %}
-</div>
+{% include 'store/partials/products.html' %}
 {% endblock %}
