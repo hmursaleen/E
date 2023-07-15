@@ -22,4 +22,6 @@
 	{{ product.description }}
 </p>
 {% endif %}
+
+<a href="{% url 'add_to_cart' product.id %}" class="inline-block mt-2 px-4 py-1 bg-teal-500 text-white rounded-xl">Add to cart</a>
 {% endblock %}
