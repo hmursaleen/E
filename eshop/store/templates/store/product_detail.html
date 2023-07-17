@@ -1,9 +1,21 @@
 {% extends 'core/base.html' %}
 
-{% block title %}Product Details{% endblock %}
+{% block title %}{{ product.title }}{% endblock %}
+
+{% block meta %}
+<meta name="description" content="{{ product.description }}">
+<meta name="author" content="Habibul Mursaleen">
+<meta property="og:title" content="Eshop | {{ product.title }}">
+<meta property="og:description" content="{{ product.description }}">
+<meta property="og:type" content="article">
+<meta property="og:url" content="http://eshop.com{%  url 'product_detail' product.category.slug product.slug %}">
+{% if product.image %}
+<meta property="og:image" content="http://eshop.com{{ product.image.url }}">
+{% endif %}
+{% endblock %}
+
 
 {% block content %}
-
 {% if product.image %}
 <div class="image mb-4 ">
 	<img src="{{ product.image.url }}" alt="Image of {{ product.title }}">
